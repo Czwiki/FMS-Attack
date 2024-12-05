@@ -27,7 +27,7 @@ for row in range(1,len(rows)+1):
     key[1] = int(rows[row-1][1])
     key[2] = int(rows[row-1][2])
     key[3] = int(rows[row-1][3])
-
+    #print(key)
     j = 0
     #initSBox(box)
     # Simulate the S-Box after KSA initialization.
@@ -48,12 +48,13 @@ for row in range(1,len(rows)+1):
             continue
         keyStreamByte = keyStreamByte_array[row-1]#int(row[3])
         #assert(box[z+box[z]] == keyStreamByte)
-        print(keyStreamByte)
-        print("j = "+str(j))
-        print("i = " +str(i))
-        print("S an Position i = "+str(box[i]))
-        keyByte = (keyStreamByte - j - box[i]) % 32
-        print(str(keyByte)+"\n")
+        #print(keyStreamByte)
+        #print("j = "+str(j))
+        #print("i = " +str(i))
+        #print("S an Position i = "+str(box[i]))
+        keyByte = (box.index(keyStreamByte) - j - box[i]) % 32
+        #print(box[keyByte])
+        #print(str(keyByte)+"\n")
         key.append(keyByte)
         #    prob[keyByte] += 1
         # Assume that the most hit is the correct password.
@@ -65,3 +66,4 @@ for row in range(1,len(rows)+1):
 #result = [format(key, 'x') for key in userInput]
 #rawkey = ''.join(result).upper()
 #print(rawkey)
+print(key[4:])
