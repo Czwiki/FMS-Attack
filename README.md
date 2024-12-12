@@ -1,5 +1,6 @@
 # RC4-Attack
-
+## Changes
+Changed to extract a custom RC4-key for a given homework.
 ## Overview
 This repository aims to implement the stream cipher algorithm RC4,
 which was used in TLS protocol until 2015.
